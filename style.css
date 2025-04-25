@@ -1,0 +1,44 @@
+/* Tema claro por padrão */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header, footer {
+  padding: 20px;
+  text-align: center;
+  background-color: #f0f0f0;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+/* Tema escuro */
+body.dark {
+  --bg-color: #121212;
+  --text-color: #f5f5f5;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
