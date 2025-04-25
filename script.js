@@ -1,5 +1,4 @@
-const botaoTema = document.getElementById('temaBtn');
-
-botaoTema.addEventListener('click', () => {
-  document.body.classList.toggle('dark');
-});
+function toggleExemplo(id) {
+  const exemplo = document.getElementById(id);
+  exemplo.style.display = exemplo.style.display === 'block' ? 'none' : 'block';
+}
