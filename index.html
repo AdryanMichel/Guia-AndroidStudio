@@ -1,180 +1,108 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Guia Android Studio para Iniciantes</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guia Android Studio</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
   <style>
     body {
-      transition: background-color 0.3s, color 0.3s;
+      background-color: #f0f2f5;
+      padding-top: 60px;
     }
-    pre code {
-      background-color: #f8f9fa;
-      display: block;
-      padding: 1rem;
-      border-left: 4px solid #3ddc84;
-      overflow-x: auto;
-      border-radius: 0.5rem;
+    .navbar {
+      background-color: #0d6efd;
     }
-    .copy-btn {
-      float: right;
-      font-size: 0.8rem;
+    .navbar-brand, .nav-link {
+      color: white !important;
     }
-    .dark-mode {
-      background-color: #121212;
-      color: #f1f1f1;
-    }
-    .dark-mode pre code {
-      background-color: #1e1e1e;
-      color: #f8f8f2;
-      border-left-color: #81c784;
-    }
-    .nav-link {
-      font-weight: 500;
-    }
-    .section-card {
-      background-color: #fff;
+    .section {
+      background: white;
       border-radius: 1rem;
       padding: 2rem;
       margin-bottom: 2rem;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
-    .dark-mode .section-card {
-      background-color: #1e1e1e;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+    footer {
+      margin-top: 4rem;
+      text-align: center;
+      color: #888;
     }
   </style>
 </head>
 <body>
-  <div class="container py-5">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-      <h1 class="fw-bold">📘 Guia Android Studio para Iniciantes</h1>
-      <button class="btn btn-outline-light" onclick="toggleDarkMode()">
-        <i class="bi bi-moon-stars"></i> Modo Claro/Escuro
+
+  <!-- Navbar -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Guia Android Studio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
+        <span class="navbar-toggler-icon"></span>
       </button>
+      <div class="collapse navbar-collapse" id="menuNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#introducao">Introdução</a></li>
+          <li class="nav-item"><a class="nav-link" href="#layout">Layouts</a></li>
+          <li class="nav-item"><a class="nav-link" href="#componentes">Componentes</a></li>
+          <li class="nav-item"><a class="nav-link" href="#codigo">Exemplo de Código</a></li>
+          <li class="nav-item"><a class="nav-link" href="quiz.html">📋 Quiz</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Conteúdo -->
+  <div class="container">
+
+    <div id="introducao" class="section">
+      <h2>📘 Introdução ao Android Studio</h2>
+      <p>O Android Studio é o ambiente de desenvolvimento oficial para criação de aplicativos Android. Ele oferece ferramentas poderosas como editor de código, preview de layout e emulador.</p>
+      <ul>
+        <li>Baseado no IntelliJ IDEA</li>
+        <li>Suporte a Java, Kotlin e XML</li>
+        <li>Facilidade para testar e empacotar apps</li>
+      </ul>
     </div>
 
-    <nav class="nav flex-column mb-5">
-      <a class="nav-link" href="#intro">1. Introdução</a>
-      <a class="nav-link" href="#instalacao">2. Instalação</a>
-      <a class="nav-link" href="#primeiro">3. Primeiro Projeto</a>
-      <a class="nav-link" href="#estrutura">4. Estrutura do Projeto</a>
-      <a class="nav-link" href="#exemplo">5. Hello World</a>
-      <a class="nav-link" href="#emulador">6. Rodando no Emulador</a>
-      <a class="nav-link" href="#quiz">7. Quiz</a>
-      <a class="nav-link" href="#curiosidades">8. Curiosidades</a>
-    </nav>
-
-    <section id="intro" class="section-card">
-      <h2 class="mb-3">1. Introdução</h2>
-      <p>Android Studio é a IDE oficial para o desenvolvimento de apps Android. Baseado em IntelliJ, ele oferece ferramentas poderosas para criar, testar e publicar aplicativos.</p>
-    </section>
-
-    <section id="instalacao" class="section-card">
-      <h2 class="mb-3">2. Instalação</h2>
-      <p>Baixe pelo site oficial: <a href="https://developer.android.com/studio" target="_blank">developer.android.com/studio</a></p>
-      <p>Execute o instalador e siga as instruções padrão.</p>
-    </section>
-
-    <section id="primeiro" class="section-card">
-      <h2 class="mb-3">3. Criando seu primeiro projeto</h2>
-      <ol>
-        <li>Abrir o Android Studio</li>
-        <li>Clicar em "New Project"</li>
-        <li>Escolher "Empty Activity"</li>
-        <li>Nomear e escolher a linguagem (Kotlin)</li>
-        <li>Clicar em "Finish"</li>
-      </ol>
-    </section>
-
-    <section id="estrutura" class="section-card">
-      <h2 class="mb-3">4. Estrutura do Projeto</h2>
+    <div id="layout" class="section">
+      <h2>🧩 Layouts no Android</h2>
+      <p>Layouts são usados para estruturar a interface do usuário. Os mais comuns são:</p>
       <ul>
-        <li><code>MainActivity.kt</code>: código principal</li>
-        <li><code>activity_main.xml</code>: layout visual</li>
-        <li><code>AndroidManifest.xml</code>: configurações do app</li>
+        <li><strong>LinearLayout</strong>: Alinha elementos em linha horizontal ou vertical</li>
+        <li><strong>ConstraintLayout</strong>: Mais flexível, ideal para designs modernos</li>
+        <li><strong>FrameLayout</strong>: Útil para sobrepor elementos</li>
       </ul>
-    </section>
+    </div>
 
-    <section id="exemplo" class="section-card">
-      <h2 class="mb-3">5. Hello World</h2>
-      <button class="btn btn-success btn-sm mb-2" onclick="copyCode('hello-code')">
-        <i class="bi bi-clipboard"></i> Copiar Código
-      </button>
-      <pre><code id="hello-code">
-class MainActivity : AppCompatActivity() {
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_main)
-  }
-}
-      </code></pre>
-    </section>
-
-    <section id="emulador" class="section-card">
-      <h2 class="mb-3">6. Rodando no Emulador</h2>
-      <p>Abra "Device Manager", crie um novo dispositivo virtual, escolha uma imagem de sistema e clique em "Play".</p>
-    </section>
-
-    <section id="quiz" class="section-card">
-      <h2 class="mb-3">7. Quiz Rápido</h2>
-      <p>O que é o <strong>AndroidManifest.xml</strong>?</p>
-      <div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="quiz1" onclick="checkQuiz(this, false)">
-          <label class="form-check-label">Um arquivo de layout</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="quiz1" onclick="checkQuiz(this, false)">
-          <label class="form-check-label">Um arquivo Kotlin</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="quiz1" onclick="checkQuiz(this, true)">
-          <label class="form-check-label">Um arquivo de configuração do app</label>
-        </div>
-      </div>
-      <p id="quiz-feedback" class="mt-3"></p>
-    </section>
-
-    <section id="curiosidades" class="section-card">
-      <h2 class="mb-3">8. Curiosidades</h2>
+    <div id="componentes" class="section">
+      <h2>🧱 Componentes Básicos</h2>
+      <p>Alguns componentes importantes para criar apps:</p>
       <ul>
-        <li>Android Studio é baseado no IntelliJ IDEA da JetBrains.</li>
-        <li>Foi anunciado pela primeira vez no Google I/O 2013.</li>
-        <li>O mascote do Android se chama "Bugdroid".</li>
-        <li>Você pode desenvolver apps Android usando Java, Kotlin e C++.</li>
-        <li>Android Studio possui um editor visual de layouts chamado Layout Editor.</li>
+        <li><code>TextView</code>: Exibe textos</li>
+        <li><code>EditText</code>: Campo de entrada de texto</li>
+        <li><code>Button</code>: Botões interativos</li>
+        <li><code>ImageView</code>: Exibe imagens</li>
+        <li><code>RecyclerView</code>: Listas de forma eficiente</li>
       </ul>
-    </section>
+    </div>
 
-    <footer class="mt-5 text-center text-muted">
-      <p>&copy; 2025 - Guia Android Studio</p>
+    <div id="codigo" class="section">
+      <h2>💻 Exemplo de Código Kotlin</h2>
+      <p>Um exemplo simples de como abrir uma nova tela em Android com Kotlin:</p>
+      <pre><code>val intent = Intent(this, SegundaActivity::class.java)
+startActivity(intent)</code></pre>
+      <p>Esse código cria uma intenção para abrir uma nova activity chamada <code>SegundaActivity</code>.</p>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 - Guia Android Studio | Criado por você 😄</p>
     </footer>
+
   </div>
 
-  <script>
-    function toggleDarkMode() {
-      document.body.classList.toggle("dark-mode");
-    }
+  <!-- Scripts Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    function copyCode(id) {
-      const code = document.getElementById(id).innerText;
-      navigator.clipboard.writeText(code);
-      alert("Código copiado!");
-    }
-
-    function checkQuiz(input, correct) {
-      const feedback = document.getElementById('quiz-feedback');
-      if (correct) {
-        feedback.textContent = "✅ Correto!";
-        feedback.style.color = "green";
-      } else {
-        feedback.textContent = "❌ Errado. Tente novamente.";
-        feedback.style.color = "red";
-      }
-    }
-  </script>
 </body>
 </html>
