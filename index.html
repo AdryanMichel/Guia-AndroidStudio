@@ -1,108 +1,176 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Guia Android Studio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guia Android Studio para Iniciantes</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
   <style>
     body {
-      background-color: #f0f2f5;
-      padding-top: 60px;
+      transition: background-color 0.3s, color 0.3s;
     }
-    .navbar {
-      background-color: #0d6efd;
+    pre code {
+      background-color: #f8f9fa;
+      display: block;
+      padding: 1rem;
+      border-left: 4px solid #3ddc84;
+      overflow-x: auto;
+      border-radius: 0.5rem;
     }
-    .navbar-brand, .nav-link {
-      color: white !important;
+    .copy-btn {
+      float: right;
+      font-size: 0.8rem;
     }
-    .section {
-      background: white;
+    .dark-mode {
+      background-color: #121212;
+      color: #f1f1f1;
+    }
+    .dark-mode pre code {
+      background-color: #1e1e1e;
+      color: #f8f8f2;
+      border-left-color: #81c784;
+    }
+    .nav-link {
+      font-weight: 500;
+    }
+    .section-card {
+      background-color: #fff;
       border-radius: 1rem;
       padding: 2rem;
       margin-bottom: 2rem;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
     }
-    footer {
-      margin-top: 4rem;
-      text-align: center;
-      color: #888;
+    .dark-mode .section-card {
+      background-color: #1e1e1e;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+    }
+    img {
+      max-width: 100%;
+      height: auto;
     }
   </style>
 </head>
 <body>
-
-  <!-- Navbar -->
-  <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Guia Android Studio</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
-        <span class="navbar-toggler-icon"></span>
+  <div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h1 class="fw-bold">📘 Guia Android Studio para Iniciantes</h1>
+      <button class="btn btn-outline-light" onclick="toggleDarkMode()">
+        <i class="bi bi-moon-stars"></i> Modo Claro/Escuro
       </button>
-      <div class="collapse navbar-collapse" id="menuNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#introducao">Introdução</a></li>
-          <li class="nav-item"><a class="nav-link" href="#layout">Layouts</a></li>
-          <li class="nav-item"><a class="nav-link" href="#componentes">Componentes</a></li>
-          <li class="nav-item"><a class="nav-link" href="#codigo">Exemplo de Código</a></li>
-          <li class="nav-item"><a class="nav-link" href="quiz.html">📋 Quiz</a></li>
-        </ul>
-      </div>
     </div>
-  </nav>
 
-  <!-- Conteúdo -->
-  <div class="container">
+    <nav class="nav flex-column mb-5">
+      <a class="nav-link" href="#intro">1. Introdução</a>
+      <a class="nav-link" href="#instalacao">2. Instalação</a>
+      <a class="nav-link" href="#primeiro">3. Primeiro Projeto</a>
+      <a class="nav-link" href="#estrutura">4. Estrutura do Projeto</a>
+      <a class="nav-link" href="#exemplo">5. Hello World</a>
+      <a class="nav-link" href="#emulador">6. Rodando no Emulador</a>
+      <a class="nav-link" href="quiz.html">7. Quiz</a>
+      <a class="nav-link" href="#ciclo">8. Ciclo de Vida</a>
+      <a class="nav-link" href="#persistencia">9. Persistência de Dados</a>
+      <a class="nav-link" href="#curiosidades">10. Curiosidades</a>
+    </nav>
 
-    <div id="introducao" class="section">
-      <h2>📘 Introdução ao Android Studio</h2>
-      <p>O Android Studio é o ambiente de desenvolvimento oficial para criação de aplicativos Android. Ele oferece ferramentas poderosas como editor de código, preview de layout e emulador.</p>
+    <section id="intro" class="section-card">
+      <h2>1. Introdução</h2>
+      <p>Android Studio é a IDE oficial para o desenvolvimento de apps Android. Baseado em IntelliJ, ele oferece ferramentas poderosas para criar, testar e publicar aplicativos.</p>
+    </section>
+
+    <section id="instalacao" class="section-card">
+      <h2>2. Instalação</h2>
+      <p>Baixe pelo site oficial: <a href="https://developer.android.com/studio" target="_blank">developer.android.com/studio</a></p>
+      <p>Execute o instalador e siga as instruções padrão.</p>
+    </section>
+
+    <section id="primeiro" class="section-card">
+      <h2>3. Criando seu primeiro projeto</h2>
+      <ol>
+        <li>Abrir o Android Studio</li>
+        <li>Clicar em "New Project"</li>
+        <li>Escolher "Empty Activity"</li>
+        <li>Nomear e escolher a linguagem (Kotlin)</li>
+        <li>Clicar em "Finish"</li>
+      </ol>
+    </section>
+
+    <section id="estrutura" class="section-card">
+      <h2>4. Estrutura do Projeto</h2>
       <ul>
-        <li>Baseado no IntelliJ IDEA</li>
-        <li>Suporte a Java, Kotlin e XML</li>
-        <li>Facilidade para testar e empacotar apps</li>
+        <li><code>MainActivity.kt</code>: código principal</li>
+        <li><code>activity_main.xml</code>: layout visual</li>
+        <li><code>AndroidManifest.xml</code>: configurações do app</li>
       </ul>
-    </div>
+    </section>
 
-    <div id="layout" class="section">
-      <h2>🧩 Layouts no Android</h2>
-      <p>Layouts são usados para estruturar a interface do usuário. Os mais comuns são:</p>
+    <section id="exemplo" class="section-card">
+      <h2>5. Hello World</h2>
+      <button class="btn btn-success btn-sm mb-2" onclick="copyCode('hello-code')">
+        <i class="bi bi-clipboard"></i> Copiar Código
+      </button>
+      <pre><code id="hello-code">class MainActivity : AppCompatActivity() {
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.activity_main)
+  }
+}</code></pre>
+    </section>
+
+    <section id="emulador" class="section-card">
+      <h2>6. Rodando no Emulador</h2>
+      <p>Abra "Device Manager", crie um novo dispositivo virtual, escolha uma imagem de sistema e clique em "Play".</p>
+    </section>
+
+    <section id="ciclo" class="section-card">
+      <h2>8. Ciclo de Vida das Activities</h2>
+      <p>O ciclo de vida de uma Activity define como ela é criada, pausada, retomada ou destruída.</p>
+      <img src="imgs/ciclo-activity.png" alt="Ciclo de Vida Activity">
       <ul>
-        <li><strong>LinearLayout</strong>: Alinha elementos em linha horizontal ou vertical</li>
-        <li><strong>ConstraintLayout</strong>: Mais flexível, ideal para designs modernos</li>
-        <li><strong>FrameLayout</strong>: Útil para sobrepor elementos</li>
+        <li><code>onCreate()</code> – chamado ao iniciar</li>
+        <li><code>onStart()</code>, <code>onResume()</code> – quando aparece</li>
+        <li><code>onPause()</code>, <code>onStop()</code> – ao sair</li>
+        <li><code>onDestroy()</code> – finalizada</li>
       </ul>
-    </div>
+    </section>
 
-    <div id="componentes" class="section">
-      <h2>🧱 Componentes Básicos</h2>
-      <p>Alguns componentes importantes para criar apps:</p>
+    <section id="persistencia" class="section-card">
+      <h2>9. Persistência de Dados</h2>
+      <p>Para salvar informações no app:</p>
       <ul>
-        <li><code>TextView</code>: Exibe textos</li>
-        <li><code>EditText</code>: Campo de entrada de texto</li>
-        <li><code>Button</code>: Botões interativos</li>
-        <li><code>ImageView</code>: Exibe imagens</li>
-        <li><code>RecyclerView</code>: Listas de forma eficiente</li>
+        <li><strong>SharedPreferences</strong> – configs simples</li>
+        <li><strong>Arquivos</strong> – textos ou binários</li>
+        <li><strong>Room (SQL)</strong> – estrutura relacional</li>
       </ul>
-    </div>
+      <img src="imgs/sharedpreferences.png" alt="Exemplo SharedPreferences">
+    </section>
 
-    <div id="codigo" class="section">
-      <h2>💻 Exemplo de Código Kotlin</h2>
-      <p>Um exemplo simples de como abrir uma nova tela em Android com Kotlin:</p>
-      <pre><code>val intent = Intent(this, SegundaActivity::class.java)
-startActivity(intent)</code></pre>
-      <p>Esse código cria uma intenção para abrir uma nova activity chamada <code>SegundaActivity</code>.</p>
-    </div>
+    <section id="curiosidades" class="section-card">
+      <h2>10. Curiosidades</h2>
+      <ul>
+        <li>Android Studio é baseado no IntelliJ IDEA.</li>
+        <li>Anunciado no Google I/O 2013.</li>
+        <li>O mascote se chama "Bugdroid".</li>
+        <li>Suporta Java, Kotlin e C++.</li>
+        <li>Possui Layout Editor visual.</li>
+      </ul>
+    </section>
 
-    <footer>
-      <p>&copy; 2025 - Guia Android Studio | Criado por você 😄</p>
+    <footer class="mt-5 text-center text-muted">
+      <p>&copy; 2025 - Guia Android Studio</p>
     </footer>
-
   </div>
 
-  <!-- Scripts Bootstrap -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
 
+    function copyCode(id) {
+      const code = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(code);
+      alert("Código copiado!");
+    }
+  </script>
 </body>
 </html>
